@@ -61,7 +61,7 @@ jobs:
       trigger: true
       params:
         globs:
-        - "*AWS.yml"
+        - "ops-manager-aws*.yml"
     - get: pcf-pipelines
   - task: wait-opsman-clear
     file: pcf-pipelines/tasks/wait-opsman-clear/task.yml
