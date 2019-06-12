@@ -63,14 +63,14 @@ jobs:
         globs:
         - "ops-manager-aws*.yml"
     - get: pcf-pipelines
-  - task: wait-opsman-clear
-    file: pcf-pipelines/tasks/wait-opsman-clear/task.yml
-    params:
-      OPSMAN_CLIENT_ID: {{opsman_client_id}}
-      OPSMAN_CLIENT_SECRET: {{opsman_client_secret}}
-      OPSMAN_USERNAME: {{opsman_admin_username}}
-      OPSMAN_PASSWORD: {{opsman_admin_password}}
-      OPSMAN_DOMAIN_OR_IP_ADDRESS: {{opsman_domain_or_ip_address}}
+  # - task: wait-opsman-clear
+  #   file: pcf-pipelines/tasks/wait-opsman-clear/task.yml
+  #   params:
+  #     OPSMAN_CLIENT_ID: {{opsman_client_id}}
+  #     OPSMAN_CLIENT_SECRET: {{opsman_client_secret}}
+  #     OPSMAN_USERNAME: {{opsman_admin_username}}
+  #     OPSMAN_PASSWORD: {{opsman_admin_password}}
+  #     OPSMAN_DOMAIN_OR_IP_ADDRESS: {{opsman_domain_or_ip_address}}
 
   - aggregate:
     - task: export-opsmgr-settings

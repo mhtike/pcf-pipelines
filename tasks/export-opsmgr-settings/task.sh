@@ -16,20 +16,20 @@ set -eu
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-function check_for_no_pending_changes() {
-  local pending_changes_count=$(om-linux \
-    --target "https://${OPSMAN_DOMAIN_OR_IP_ADDRESS}" \
-    --skip-ssl-validation \
-    --client-id "${OPSMAN_CLIENT_ID}" \
-    --client-secret "${OPSMAN_CLIENT_SECRET}" \
-    --username "${OPSMAN_USERNAME}" \
-    --password "${OPSMAN_PASSWORD}" \
-    curl -path /api/v0/staged/pending_changes | jq '[ .product_changes[] | select(.action != "unchanged") ] | length')
-  if [[ $pending_changes_count -ne 0 ]]; then
-    echo "Detected $pending_changes_count pending changes. Aborting."
-    exit 1
-  fi
-}
+# function check_for_no_pending_changes() {
+#   local pending_changes_count=$(om-linux \
+#     --target "https://${OPSMAN_DOMAIN_OR_IP_ADDRESS}" \
+#     --skip-ssl-validation \
+#     --client-id "${OPSMAN_CLIENT_ID}" \
+#     --client-secret "${OPSMAN_CLIENT_SECRET}" \
+#     --username "${OPSMAN_USERNAME}" \
+#     --password "${OPSMAN_PASSWORD}" \
+#     curl -path /api/v0/staged/pending_changes | jq '[ .product_changes[] | select(.action != "unchanged") ] | length')
+#   if [[ $pending_changes_count -ne 0 ]]; then
+#     echo "Detected $pending_changes_count pending changes. Aborting."
+#     exit 1
+#   fi
+# }
 
 function dump_installations() {
   om-linux --target "https://${OPSMAN_DOMAIN_OR_IP_ADDRESS}" \
