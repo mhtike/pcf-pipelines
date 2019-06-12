@@ -62,10 +62,10 @@ function main() {
 
   dump_installations > installations-after.json
 
-  if [[ "$(cat installations-after.json)" != "$(cat installations-before.json)" ]]; then
-    echo "Detected changes in the installation log (change log)."
-    exit 1
-  fi
+  # if [[ "$(cat installations-after.json)" != "$(cat installations-before.json)" ]]; then
+  #   echo "Detected changes in the installation log (change log)."
+  #   exit 1
+  # fi
 
   check_for_no_pending_changes
 }
